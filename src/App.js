@@ -1,4 +1,4 @@
-//import './App.css';
+
 import Book from "./BookComponents/Book";
 import NewBook from "./BookComponents/NewBook";
 
@@ -29,9 +29,14 @@ function App() {
       price: 102.04
     }
   ];
+
+  const addNewBook = (bookData) => {
+    console.log(bookData);
+  };
+
   return (
     <div className="App">
-      <NewBook />
+      <NewBook onAddNewBook={addNewBook} />
       <Book books={books} />
     </div>
   );

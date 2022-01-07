@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './BookForm.css';
 
-function BookForm() {
+function BookForm(props) {
     const [title,setTitle] = useState('');
     const [price,setPrice] = useState('');
     const [date,setDate] = useState('');
@@ -31,6 +31,7 @@ function BookForm() {
         setPrice('');
         setDate('');
         //console.log(bookData);
+        props.onSaveBookData(bookData);
     };
 
     return (
