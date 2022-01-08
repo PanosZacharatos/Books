@@ -32,6 +32,7 @@ function BookForm(props) {
         setDate('');
         //console.log(bookData);
         props.onSaveBookData(bookData);
+        props.handleShowForm();
     };
 
     return (
