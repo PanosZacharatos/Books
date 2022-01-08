@@ -1,37 +1,42 @@
-
+import React, {useState} from "react";
 import Book from "./BookComponents/Book";
 import NewBook from "./BookComponents/NewBook";
 
 function App() {
-  const books = [
+  const DUMMY_BOOKS = [
     {
       id: 'b1',
-      date: new Date(2012,3,22),
-      title: 'Harry Potter',
-      price: 32.45
+      date: new Date(2021,3,22),
+      title: 'Book 1',
+      price: 32
     },
     {
       id: 'b2',
       date: new Date(2021,7,9),
-      title: 'Lord of the rings',
-      price: 77.59
+      title: 'Book 2',
+      price: 77
     },
     {
       id: 'b3',
-      date: new Date(2002,8,28),
-      title: 'Hobbit',
-      price: 12.11
+      date: new Date(2018,8,28),
+      title: 'Book 3',
+      price: 12
     },
     {
       id: 'b4',
-      date: new Date(2017,12,11),
-      title: 'Game of thrones',
-      price: 102.04
+      date: new Date(2019,2,1),
+      title: 'Book 4',
+      price: 102
     }
   ];
 
+  const [books,setBooks] = useState(DUMMY_BOOKS);
+
   const addNewBook = (bookData) => {
-    console.log(bookData);
+    //console.log(bookData);
+    setBooks(previousBooks=>{
+      return[bookData,...previousBooks]
+    })
   };
 
   return (

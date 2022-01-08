@@ -25,7 +25,7 @@ function BookForm(props) {
         const bookData = {
             title, 
             price,
-            date
+            date:new Date(date)
         };
         setTitle('');
         setPrice('');
