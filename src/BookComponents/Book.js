@@ -1,20 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react';
 import BookItem from "./Bookitem";
 import BookFilter from './BookFilter';
-import BookDate from './BookDate';
 
 function Book(props) {
 
-    
-
+    let [year,setYear] = useState('All');
+    let filteredBooks = props.books ;
     const onChangeFilter = (givenYear) => {
-      console.log(givenYear);
+      setYear(givenYear)
+
+    }
+
+    if(year !== 'All'){
+      filteredBooks = props.books.filter(book=>year===book.date.getFullYear().toString());
     }
 
     return (
       <div>    
         <BookFilter onChangeFilter={onChangeFilter} />
-        {props.books.map(book=><BookItem key={book.id} date={book.date} title={book.title} price={book.price} />)}
+        {
+          filteredBooks.length === 0 ? 
+          <p>No Books found</p> :
+          filteredBooks.map(book=><BookItem key={book.id} date={book.date} title={book.title} price={book.price} />)
+      
+        }
         
       </div>
     )
